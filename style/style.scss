@@ -1,0 +1,819 @@
+@import "null.scss";
+body {
+   font-family: 'Late';
+   background-color: #f7f7f7;
+}
+////////////////////////////////////////////////////
+.wrapper{
+overflow: hidden;
+min-height: 100%;
+}
+.container{
+   max-width: 1130px;
+   padding: 0px 15px;
+   margin: 0 auto;
+}
+.ibg{
+   background-position: center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   img{display:none;}
+   position: relative;
+   }
+//////////////////////////////////////////
+.page {
+   max-width: 100%;
+   height:800px;
+   display:flex;
+   flex-direction: column;
+
+}
+.main-screen {
+flex: 1 0 100%;
+position: relative;
+		// .mainscreen__bg
+		&__bg {
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+		}
+}
+///////////////////////////////////////
+.header {
+position: absolute;
+width: 100%;
+z-index: 50;
+left: 0;
+top: 35px;
+   // .header__row
+
+   &__row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85px;
+   }
+
+   // .header__menu
+
+   &__menu {
+   }
+
+   // .header__logo
+
+   &__logo {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%,0px) ;
+      z-index: 2;
+   }
+   @media(max-width:767px){
+      top:15px;
+   }
+}
+.menu {
+
+   // .menu__icon
+
+   &__icon {
+   }
+
+   // .menu__body
+
+   &__body {
+   }
+
+   // .menu__list
+
+   &__list {
+      display: flex;
+      li{
+         position: relative;
+         padding: 0px 37.5px;
+&:nth-child(2){
+   padding: 0px 110px 0px 37.5px;
+}
+&:nth-child(3){
+   padding: 0px 37.5px 0px 110px;
+}
+&::after{
+   content: '';
+   width: 2px;
+   height: 2px;
+   background-color: #4d4959;
+   border-radius: 50%;
+   position: absolute;
+   right: 0;
+   top: 50%;
+   margin: -1.5px 0px 0px 0px ;
+}
+&:nth-child(2),
+&:last-child{
+   &::after{
+      display: none;
+   }
+}
+      }
+   }
+
+   // .menu__link
+
+   &__link {
+      color: #4d4959;
+font-size: 13px;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 2.6px;
+&:hover{
+   color: #3b3942;
+}
+   }
+   @media(max-width:767px){
+      &__body {
+         position:fixed;
+         width: 100%;
+         height: 100%;
+         left: 0;
+         top: 0;
+         background-color: #4d4959;
+         padding: 150px 0px 20px 0px ;
+         overflow: auto;
+         top: -100%;
+         transition: all 0.3s ease 0s;
+         &.active{
+ top: 0;
+         }
+      }
+      &__list {
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+li{
+padding:0 0 45px 0  !important ;
+&:last-child{
+   padding: 0;
+}
+&::after{
+   content: '';
+   width: 4px;
+   height: 4px;
+   background-color: #4d4959;
+   border-radius: 50%;
+   position: absolute;
+   right: 50%;
+   top: 40px;
+   margin: -2px 0px 0px 0px ;
+}
+}
+      }
+      &__link {
+         color:#fff;
+         font-size: 20px;
+      }
+   }
+}
+.icon-menu {
+   @media(max-width:767px){
+      display: block;
+      position: absolute;
+      top: 18px;
+      right: 10px;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 5;
+      & span{//линия по центру 
+         background: #4d4959;
+         position: absolute;
+         left: 0;
+         top: 9px;
+         height: 1.5px;
+         width: 100%;
+         transition: all 0.3s ease 0s;
+      }
+&:before{//линия с верху
+         content: '';
+         background: #4d4959;
+         position: absolute;
+         left: 0;
+         bottom:  0;
+         height: 2px;
+         width: 100%;
+         transition: all 0.3s ease 0s;
+      }
+&:after{//линия с низу
+         content: '';
+         background: #4d4959;
+         position: absolute;
+         left: 0;
+         top: 0;
+         height: 2px;
+         width: 100%;
+         transition: all 0.3s ease 0s;
+      }
+   }
+   &.active:before{//поворот палки 
+transform: rotate(45deg);
+bottom: 9px;
+background: #fff;
+   }
+   &.active:after{
+      transform: rotate(-45deg);
+      top: 9px;
+      background: #fff;
+            }
+   &.active span{//убираем палку
+               transform: scale(0);
+                     }
+}
+//////////////////////////////////////
+.generation {
+
+   // .generation__block
+
+   &__block {
+      padding: 120px 0px ;
+      @media(max-width:900px){
+         padding: 80px 0px ;
+      }
+      @media(max-width:600px){
+         padding: 30px 0px ;
+      }
+   }
+}
+.block {
+   // .block__icon
+
+   &__icon {
+      text-align: center;
+      margin: 0px 0px 30px 0px ;
+   }
+
+   // .block__title
+
+   &__title {
+      line-height: 24px;
+   }
+
+   // .block__text
+
+   &__text {
+   }
+}
+.title {
+   color: #353738;
+font-size: 18px;
+font-weight: 700;
+text-align: center;
+text-transform: uppercase;
+margin:0px 0px 20px 0px;
+}
+.text {
+   color: #848789;
+font-size: 18px;
+font-weight: 400;
+line-height: 34px;
+text-align: center;
+
+}
+///////////////////////////////////////
+.brands {
+background-color: #fff;
+   // .brands__row
+&.rev{//не сработало
+   .brands__column{
+      order: 1;
+      &_b{
+      order: 2;
+      }
+   }
+}
+   &__row {
+      display: flex;
+
+   }
+
+   // .brands__column
+
+   &__column {
+flex: 0 1 33.333%;
+      // .brands__column_b
+
+      &_b {
+         flex: 0 1 66.667%;
+      }
+   }
+
+   // .brands__item
+
+   &__item {
+   }
+
+   // .brands__image
+
+   // .brands__content
+
+   &__content {
+      padding: 70px 65px 55px 65px;
+      position: relative;
+      &::after{
+         content: '';
+         position: absolute;
+         bottom: -10px;
+         left: 50%;
+         margin: 0px 0px 0px -10px;
+         z-index: 2;
+         width: 0;
+         height: 0;
+         border-left:10px solid transparent ;
+         border-right:10px solid transparent ;
+         border-top:10px solid  #fff;
+      }
+   }
+   &__image {
+      padding: 0px 0px 37.51% 0px;
+   }
+   @media(max-width:1500px){
+      &__content {
+         padding: 40px 35px 36px 35px;
+      }
+   }
+   @media(max-width:1100px){
+      &_last{
+         .brands__column{//тут сработало!!!
+            &:nth-child(1){order: 2;}
+            &:nth-child(2){order: 1;}
+            &:nth-child(3){order: 3;}
+         }
+
+      }
+      &__row {
+         flex-direction: column;
+      }
+   }
+}
+.item {
+   height: 100%;
+display: block;
+position: relative;
+   // .item__logo
+
+   &__logo {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: all 0.3s ease 0s;
+      justify-content: center;
+      background-color:  rgba(101, 195, 159,0.3);//установка цвета фона
+      z-index: 2;
+      opacity: 0;
+      visibility: hidden;
+      span {
+         color: #ffffff;
+font-family: Lato;
+font-size: 14px;
+font-weight: 700;
+letter-spacing: 2.8px;
+margin: 10px 0px 0px 0px ;
+      }
+   }
+   &__image {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+   }
+   &:hover{
+      .item__logo{//цвет фона при наведении с лого 
+         opacity: 1;
+         visibility: visible;
+      }
+   }
+   @media(max-width:1100px){//возврат картинки при колонке
+      height: auto;
+      padding: 0px 0px 70% 0px;
+   }
+}
+
+.block {
+   
+   // .block__icon
+
+   &__icon {
+
+   }
+
+   // .block__title
+
+   &__title {
+   }
+
+   // .block__text
+
+   &__text {
+      // .block__text_j
+
+      &_j {
+         text-align: justify;
+         font-size: 16px;
+         line-height: 30px;
+         &:after{
+            content: '';
+            display: block;
+            margin: 35px auto 0px auto;
+            width: 50px;
+      height: 1px;
+      background-color: #efefef;
+         }
+      }
+      
+   }
+   @media(max-width:1500px){
+      &__text {
+         &_j {
+            &:after{
+               margin: 15px auto 0px auto;
+            }
+         }
+      }
+   }
+   
+}
+///////////////////////////////////////
+.slick-slider{position: relative;
+   .slick-track,.slick-list{   
+   }
+   .slick-list{overflow: hidden;}
+   .slick-track{display: flex;align-items: flex-start;}
+   .slick-slide{}
+   .slick-dots{
+      padding: 100px 0px 0px 0px ;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      li{
+         margin: 0px 7px 0px 0px;
+         button{
+            font-size: 0;//точки
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            border: 1px solid #c8c8c8;
+            background-color: transparent;
+         }
+         &.slick-active{
+            button{
+               width: 11px;
+height: 11px;
+background-color: #a9afb3;
+            }
+         }
+      }
+   }
+}
+//////////////////////////////////////////
+.slider {
+background: #f7f7f7;
+padding: 120px 0px 60px 0px ;
+   // .slider__body
+
+   &__body {
+      text-align: center;
+      min-height: 0;
+   }
+
+   // .slider__item
+
+   &__item {
+   }
+
+   // .slider__icon
+
+   &__icon {
+      margin: 0px 0px 20px 0px ;
+   }
+
+   // .slider__title
+
+   &__title {
+      margin: 0px 0px 20px 0px ;
+      color: #353738;
+font-family: Lato;
+font-size: 18px;
+font-weight: 700;
+span{
+   color: #848789;
+font-family: "Lato - Light";
+font-weight: 300;
+font-style: normal;
+letter-spacing: 1.8px;
+}
+   }
+
+   // .slider__text
+
+   &__text {
+      color: #848789;
+font-family: Lato;
+font-size: 24px;
+font-style: italic;
+letter-spacing: normal;
+line-height: 34px;
+   }
+}
+//////////////////////////////////////////////
+.shop {
+
+   // .shop__body
+
+   &__body {
+      display: flex;
+   }
+
+   // .shop__column
+
+   &__column {
+      flex: 0 1 16.6665%;
+      // .shop__column_b
+
+      &_b {
+         flex: 0 1 33.333%;
+      }
+   }
+
+   // .shop__block
+
+   &__block {
+   }
+
+   // .shop__footer
+
+   &__footer {
+      background-color: #282f35;
+      padding: 75px 0;
+      text-align: center;
+   }
+
+   // .shop__btn
+
+   &__btn {
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      height: 50px;
+      line-height: 48px;
+      color: #ffffff;
+font-family: Lato;
+font-size: 14px;
+font-weight: 700;
+padding: 0 60px;
+&:hover{
+   background-color: #707072;
+}
+   }
+   @media(max-width:1100px){//выстраивание в колонку и разворачивание по всей ширине
+      &__body {
+         flex-wrap: wrap;
+      }
+      &__column {
+         flex: 0 1 50%;
+         // .shop__column_b
+         &:first-child{
+            flex: 1 1 100%;
+         }
+         &:last-child{
+            flex: 1 1 100%;
+         }
+      }
+      &__btn {
+         padding: 0 10px;
+      }
+      &__footer {
+         padding: 50px 0;
+      }
+   }
+}
+.block-shop {
+height: 100%;
+   // .block-shop__row
+
+   &__row {
+      display: flex;
+   }
+
+   // .block-shop__column
+
+   &__column {
+      flex: 0 1 50%;
+   }
+   &__item {
+height: auto;
+padding: 0px 0px 50% 0px ;
+      // .block-shop__item_b
+
+      &_b {
+         padding: 0px 0px 200.5% 0px;
+      }
+      &_l {
+         padding: 0px 0px 100% 0px ;
+      }
+   }
+}
+///////////////////////////////////////
+.subscribe {
+background-color: #fff;
+   // .subscribe__body
+
+   &__body {
+      padding: 110px 0;
+      max-width: 534px;
+      margin: 0 auto;
+      text-align: center;
+   }
+
+   // .subscribe__logo
+
+   &__logo {
+      margin: 0px 0px 39px 0px;
+   }
+
+   // .subscribe__label
+
+   &__label {
+      font-style: italic;
+      font-size: 24px;
+      color:#848789;
+      margin: 0px 0px 35px 0px;
+   }
+
+   // .subscribe__form
+
+   &__form {
+      display: flex;
+   }
+
+   // .subscribe__input
+
+   &__input {
+      flex: 1 1 auto;
+      padding: 0px 8px 0px 0px;
+      .input{
+         width: 100%;
+         height: 69px;
+         border: 1px solid #d3d7d9;
+         background-color: #fff;
+         padding: 0 28px;
+         color: #929292;
+         font-size: 20px;
+         font-style: italic;
+         &.focus{//не сработает тк нужно код в js к input сделать
+            color: #333;
+
+         }
+      }
+   }
+
+   // .subscribe__button
+
+   &__button {
+     flex:  0 0 126px;
+   }
+
+   // .subscribe__btn
+
+   &__btn {
+      width: 100%;
+      height: 69px;
+      line-height: 69px;
+      color: #fff;
+      background-color: rgb(57, 148, 136);
+      font-size: 24px;
+      font-weight: 300;
+      text-transform: uppercase;
+      &:hover{
+         background-color: rgb(41, 90, 83);
+      }
+   }
+   @media (max-width:750px){
+      &__body {
+         padding: 50px 0;
+      }
+   }
+   @media (max-width:750px){
+      &__form {
+        display: block;
+      }
+      &__input {
+         padding: 0px 0px 8px 0px;
+      }
+   }
+}
+//////////////////////////////////////////===
+.footer {
+   background-color: #f7f7f7;
+   // .footer__row
+
+   &__row {
+      display: flex;
+      padding: 100px 0;
+      align-items: center;
+   }
+
+   // .footer__column
+
+   &__column {
+      flex:  0 1 33.333%;
+   }
+
+   // .footer__address
+
+   &__address {
+      color: #848789;
+      font-size: 14px;
+      line-height: 18px;
+      p{
+         &:first-child{
+            font-weight: 700;
+         }
+      }
+   }
+
+   // .footer__social
+
+   &__social {
+   }
+
+   // .footer__dev
+
+   &__dev {
+   }
+   @media (max-width:1100px){
+      &__row {
+      padding: 50px 0;
+      }
+   }
+   @media (max-width:600px){
+      &__row {
+         flex-direction: column;
+         text-align: center;
+         padding: 30px 0;
+      }
+      &__social {
+         margin: 15px 0;
+      }
+      &__address {
+         padding: 0;
+      }
+   }
+}
+
+.social {
+display: flex;
+justify-content: center;
+align-items: center;
+   // .social__link
+
+   &__link {
+      margin: 0 7.5px;
+   }
+}
+.icons {
+
+   // .icons__icon
+
+   &__icon {
+   }
+}
+.dev {
+display: flex;
+justify-content: flex-end;
+align-items: center;
+   // .dev__text
+
+   &__text {
+      color: #848789;
+      font-size: 14px;
+      font-style: italic;
+      padding: 0px 9px 0px 0px;
+   }
+
+   // .dev__icon
+
+   &__icon {
+   }
+}
+
+
+///////////////////////////////////////
+.content{
+z-index: 90;
+}
+//////////////////////////////
